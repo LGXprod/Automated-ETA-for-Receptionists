@@ -3,6 +3,8 @@ import random
 
 x = 0
 csvList = []
+startHour = 8
+startMin = 0
 
 with open('patients.csv') as csv_file:
     csvReader = csv.reader(csv_file)
@@ -20,9 +22,17 @@ print(x)
 csvList[0].append("hour")
 csvList[0].append("minutes")
 
+randomHour = startHour
+randomMin = startMin
+
 for y in range(1, x):
-    randomHour = random.randint(1, 13)
-    randomMin = random.randint(1, 60)
+    minuteAdd = random.randint(0, 6)
+    randomMin = randomMin + minuteAdd
+
+    if randomMin > 60:
+        randomMin = 0
+        randomHour = randomHour + 1
+
     csvList[y].append(randomHour)
     csvList[y].append(randomMin)
 

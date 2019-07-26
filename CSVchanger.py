@@ -36,7 +36,16 @@ newPatient = False
 
 for y in range(1, x):
 
-    minuteAdd = random.randint(0, 6) # minuteAdd = round(random.uniform(0, 1.75), 2)
+    if y <= 40:
+        minuteAdd = random.randint(4, 8) # minuteAdd = round(random.uniform(0, 1.75), 2)
+        #8am-12pm 40 patients, 1 patient per 6 min, variance of 2 mins
+    elif y <= 210:
+        minuteAdd = random.randint(0, 3)
+        #12am-4pm 170 patients, 1 patient per 1.4 (rounded to 1) min, variance of 2 mins
+    else:
+        minuteAdd = random.randint(3, 7)
+        #12am-4pm 170 patients, 1 patient per 5 min, variance of 2 mins
+
     randomDoc = random.randint(1,5)
     newPatientOdds = random.randint(1,6)
 

@@ -27,14 +27,18 @@ print(x)
 csvList[0].append("hour")
 csvList[0].append("minutes")
 csvList[0].append("doctor")
+csvList[0].append("newPatient")
 
 randomHour = startHour
 randomMin = startMin
 randDocName = ""
+newPatient = False
 
 for y in range(1, x):
-    minuteAdd = random.randint(0, 6)
+
+    minuteAdd = random.randint(0, 6) # minuteAdd = round(random.uniform(0, 1.75), 2)
     randomDoc = random.randint(1,5)
+    newPatientOdds = random.randint(1,6)
 
     randomMin = randomMin + minuteAdd
 
@@ -53,9 +57,15 @@ for y in range(1, x):
     else:
         randDocName = randDr5
 
+    if newPatientOdds < 6:
+        newPatient = False
+    else:
+        newPatient = True
+
     csvList[y].append(randomHour)
     csvList[y].append(randomMin)
     csvList[y].append(randDocName)
+    csvList[y].append(newPatient)
 
 print(csvList)
 

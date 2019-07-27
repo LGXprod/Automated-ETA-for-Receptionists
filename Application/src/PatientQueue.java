@@ -2,9 +2,18 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class Queue {
+public class PatientQueue {
 
-    public Queue(){
+    private Patient head;
+    private Patient previousPatient;
+
+    public PatientQueue(){
+
+        System.out.println("hello");
+
+    }
+
+    public void loadQueue(){
 
         String fileName = "new.csv";
         File file = new File(fileName);
@@ -17,9 +26,12 @@ public class Queue {
 
                 String data = inputStream.nextLine();
                 String[] patientQueue = data.split(",");
-                Patient patient = new Patient(patientQueue[0], patientQueue[1], patientQueue[3],
-                        Double.parseDouble(patientQueue[4]));
-
+                if (patientQueue[0].equals("guid")){
+                    continue;
+                }
+                head = new Patient(patientQueue[0], patientQueue[1], patientQueue[3],
+                        Integer.parseInt(patientQueue[4]), Integer.parseInt(patientQueue[5]));
+                System.out.println(head.getFName());
 
             }
 

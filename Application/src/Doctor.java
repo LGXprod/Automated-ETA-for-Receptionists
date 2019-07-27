@@ -1,10 +1,10 @@
 public class Doctor {
 
-    String fName;
-    String sName;
-    double avgWaitTime;
+    private String fName;
+    private String sName;
+    private int avgWaitTime;
 
-    public Doctor(String doctorFName, String doctorSName, double doctorWaitTime){
+    public Doctor(String doctorFName, String doctorSName, int doctorWaitTime){
         fName = doctorFName;
         sName = doctorSName;
         avgWaitTime = doctorWaitTime;

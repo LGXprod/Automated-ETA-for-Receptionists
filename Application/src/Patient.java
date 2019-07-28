@@ -32,6 +32,10 @@ public class Patient {
 
     }
 
+    public String getGuid(){
+        return this.guid;
+    }
+
 
 
 }

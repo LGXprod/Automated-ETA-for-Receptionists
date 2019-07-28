@@ -44,7 +44,7 @@ public class PatientLL {
 
     }
 
-    public int[] calculateWait(){
+    public int[] calculateTotalWait(){
 
         Patient patient = head;
         int[] times = new int[]{0,0,0,0,0};
@@ -86,6 +86,52 @@ public class PatientLL {
         //System.out.println(Arrays.toString(times));
 
         return times;
+
+    }
+
+    public Patient findPatient(String id){
+
+        Patient patient = head;
+
+        while (patient.next != null && !patient.getGuid().equals(id)){
+
+            patient = patient.next;
+
+        }
+
+        if (patient.getGuid().equals(id)){
+
+            return patient;
+
+        } else{
+
+            return null;
+
+        }
+
+
+    }
+
+    public int patientWait(Patient patientWaiting, String id){
+
+        Patient patient = head;
+        String docSpecified = patientWaiting.getDocSpecified();
+        int time = 0;
+
+        while (patient.next != null && !id.equals(patient.getGuid())){
+
+            if (docSpecified.equals(patient.getDocSpecified())){
+                time = time + 15;
+            }
+            patient = patient.next;
+
+        }
+
+        if (docSpecified.equals(patient.getDocSpecified())){
+            time = time + 15;
+        }
+
+        return time;
 
     }
 

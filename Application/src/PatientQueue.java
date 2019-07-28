@@ -4,8 +4,7 @@ import java.util.Scanner;
 
 public class PatientQueue {
 
-    private Patient head;
-    private Patient previousPatient;
+    //private Patient[] work = new Patient[250];
 
     public PatientQueue(){
 
@@ -18,6 +17,8 @@ public class PatientQueue {
         String fileName = "new.csv";
         File file = new File(fileName);
 
+        PatientLL patientLL = new PatientLL();
+
         try {
 
             Scanner inputStream = new Scanner(file);
@@ -29,9 +30,11 @@ public class PatientQueue {
                 if (patientQueue[0].equals("guid")){
                     continue;
                 }
-                head = new Patient(patientQueue[0], patientQueue[1], patientQueue[3],
+                Patient patient = new Patient(patientQueue[0], patientQueue[1], patientQueue[3],
                         Integer.parseInt(patientQueue[4]), Integer.parseInt(patientQueue[5]));
-                System.out.println(head.getFName());
+                patientLL.insert(patient);
+
+
 
             }
 
@@ -42,6 +45,8 @@ public class PatientQueue {
             e.printStackTrace();
 
         }
+
+        patientLL.printAll();
 
     }
 

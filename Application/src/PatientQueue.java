@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class PatientQueue {
@@ -8,7 +9,7 @@ public class PatientQueue {
 
     public PatientQueue(){
 
-        System.out.println("hello");
+        //System.out.println("hello");
 
     }
 
@@ -31,9 +32,8 @@ public class PatientQueue {
                     continue;
                 }
                 Patient patient = new Patient(patientQueue[0], patientQueue[1], patientQueue[3],
-                        Integer.parseInt(patientQueue[4]), Integer.parseInt(patientQueue[5]));
+                        Integer.parseInt(patientQueue[4]), Integer.parseInt(patientQueue[5]), patientQueue[6]);
                 patientLL.insert(patient);
-
 
 
             }
@@ -46,7 +46,15 @@ public class PatientQueue {
 
         }
 
-        patientLL.printAll();
+        //patientLL.printAll();
+
+        int[] docETAs = patientLL.calculateWait();
+        System.out.println(Arrays.toString(docETAs));
+        System.out.println("Doctor A: " + ((double)docETAs[0]/60) + " hour wait");
+        System.out.println("Doctor B: " + ((double)docETAs[1]/60) + " hour wait");
+        System.out.println("Doctor C: " + ((double)docETAs[2]/60) + " hour wait");
+        System.out.println("Doctor D: " + ((double)docETAs[3]/60) + " hour wait");
+        System.out.println("Doctor E: " + ((double)docETAs[4]/60) + " hour wait");
 
     }
 

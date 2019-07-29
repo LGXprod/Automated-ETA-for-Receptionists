@@ -26,7 +26,6 @@ print(x)
 
 csvList[0].append("hour")
 csvList[0].append("minutes")
-csvList[0].append("doctor")
 csvList[0].append("newPatient")
 
 randomHour = startHour

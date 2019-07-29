@@ -56,11 +56,20 @@ public class PatientQueue {
         System.out.println("Doctor D: " + ((double)docETAs[3]/60) + " hour wait");
         System.out.println("Doctor E: " + ((double)docETAs[4]/60) + " hour wait");
 
-        String id = "c1a886e8-fc48-5b10-98cf-eb21b8d20220";
-        Patient foundPatient = patientLL.findPatient(id);
+        //String id = "c1a886e8-fc48-5b10-98cf-eb21b8d20220";
 
-        System.out.println(foundPatient.getFName());
-        System.out.println(patientLL.patientWait(foundPatient, id));
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Input user ID: ");
+        String id = sc.nextLine();
+        Patient foundPatient = patientLL.findPatient(id);
+        double waitTime = ((double)patientLL.patientWait(foundPatient, id))/60;
+        int waitHour = (int)waitTime;
+        double waitMin = (waitTime-waitHour)*60;
+
+        System.out.println("ETA for " + foundPatient.getFName() + " to see "
+                + foundPatient.getDocSpecified() + " is " + waitHour + " hour and " +
+                waitMin + " minutes.");
+        //System.out.println(patientLL.patientWait(foundPatient, id));
 
         // Need to split csv into much smaller lists to test methods of estimating times
         // Then need to create a python script that appends new instances of the csv and make the java app accommodate this

@@ -51,15 +51,15 @@ public class PatientLL {
 
         while (patient.next != null){
 
-            if (patient.getDocSpecified().equals("Doctor A")){
+            if (patient.getDocSpecified().getId().equals("1")){
                 times[0] = times[0] + 15;
-            } else if (patient.getDocSpecified().equals("Doctor B")){
+            } else if (patient.getDocSpecified().getId().equals("2")){
                 times[1] = times[1] + 15;
-            } else if (patient.getDocSpecified().equals("Doctor C")){
+            } else if (patient.getDocSpecified().getId().equals("3")){
                 times[2] = times[2] + 15;
-            } else if (patient.getDocSpecified().equals("Doctor D")){
+            } else if (patient.getDocSpecified().getId().equals("4")){
                 times[3] = times[3] + 15;
-            } else if (patient.getDocSpecified().equals("Doctor E")){
+            } else if (patient.getDocSpecified().getId().equals("5")){
                 times[4] = times[4] + 15;
             }
 
@@ -67,20 +67,16 @@ public class PatientLL {
 
         }
 
-        if (patient.getDocSpecified().equals("Doctor A")) {
-
-            if (patient.getDocSpecified().equals("Doctor A")){
-                times[0] = times[0] + 15;
-            } else if (patient.getDocSpecified().equals("Doctor B")){
-                times[1] = times[1] + 15;
-            } else if (patient.getDocSpecified().equals("Doctor C")){
-                times[2] = times[2] + 15;
-            } else if (patient.getDocSpecified().equals("Doctor D")){
-                times[3] = times[3] + 15;
-            } else if (patient.getDocSpecified().equals("Doctor E")){
-                times[4] = times[4] + 15;
-            }
-
+        if (patient.getDocSpecified().getId().equals("1")){
+            times[0] = times[0] + 15;
+        } else if (patient.getDocSpecified().getId().equals("2")){
+            times[1] = times[1] + 15;
+        } else if (patient.getDocSpecified().getId().equals("3")){
+            times[2] = times[2] + 15;
+        } else if (patient.getDocSpecified().getId().equals("4")){
+            times[3] = times[3] + 15;
+        } else if (patient.getDocSpecified().getId().equals("5")){
+            times[4] = times[4] + 15;
         }
 
         //System.out.println(Arrays.toString(times));
@@ -115,20 +111,16 @@ public class PatientLL {
     public int patientWait(Patient patientWaiting, String id){
 
         Patient patient = head;
-        String docSpecified = patientWaiting.getDocSpecified();
+        Doctor docSpecified = patientWaiting.getDocSpecified();
         int time = 0;
 
         while (patient.next != null && !id.equals(patient.getGuid())){
 
-            if (docSpecified.equals(patient.getDocSpecified())){
+            if (docSpecified.getId().equals(patient.getDocSpecified().getId())){
                 time = time + 15;
             }
             patient = patient.next;
 
-        }
-
-        if (docSpecified.equals(patient.getDocSpecified())){
-            time = time + 15;
         }
 
         return time;

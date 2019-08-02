@@ -15,7 +15,7 @@ public class PatientQueue {
 
     public void loadQueue(){
 
-        String fileName = "new.csv";
+        String fileName = "patientList2.csv";
         File file = new File(fileName);
 
         PatientLL patientLL = new PatientLL(); // Look at this line
@@ -31,8 +31,9 @@ public class PatientQueue {
                 if (patientQueue[0].equals("guid")){
                     continue;
                 }
+                Doctor doctorSpecified = new Doctor(patientQueue[7]);
                 Patient patient = new Patient(patientQueue[0], patientQueue[1], patientQueue[3],
-                        Integer.parseInt(patientQueue[4]), Integer.parseInt(patientQueue[5]), patientQueue[6]);
+                        Integer.parseInt(patientQueue[4]), Integer.parseInt(patientQueue[5]), Boolean.parseBoolean(patientQueue[6]), doctorSpecified);
                 patientLL.insert(patient);
 
 
@@ -67,7 +68,7 @@ public class PatientQueue {
         double waitMin = (waitTime-waitHour)*60;
 
         System.out.println("ETA for " + foundPatient.getFName() + " to see "
-                + foundPatient.getDocSpecified() + " is " + waitHour + " hour and " +
+                + foundPatient.getDocSpecified().getfName() + " is " + waitHour + " hours and " +
                 waitMin + " minutes.");
         //System.out.println(patientLL.patientWait(foundPatient, id));
 

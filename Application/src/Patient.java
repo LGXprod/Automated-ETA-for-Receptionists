@@ -7,9 +7,10 @@ public class Patient {
     private int hourArrived;
     private int minArrived;
     private int avgTimeWDoc;
-    private String docSpecified;
+    private Doctor docSpecified;
+    private boolean isNew;
 
-    public Patient(String id, String patientFName, String patientSName, int hour, int min, String doctor){
+    public Patient(String id, String patientFName, String patientSName, int hour, int min, boolean newPatient, Doctor doctor){
 
         this.next = null;
         guid = id;
@@ -18,7 +19,7 @@ public class Patient {
         hourArrived = hour;
         minArrived = min;
         docSpecified = doctor;
-
+        isNew = newPatient;
 
     }
 
@@ -26,7 +27,7 @@ public class Patient {
         return this.fName;
     }
 
-    public String getDocSpecified(){
+    public Doctor getDocSpecified(){
 
         return this.docSpecified;
 

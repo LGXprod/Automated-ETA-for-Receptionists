@@ -15,7 +15,7 @@ public class PatientQueue {
 
     public void loadQueue(){
 
-        String fileName = "patientList2.csv";
+        String fileName = "patientListMorning.csv";
         File file = new File(fileName);
 
         PatientLL patientLL = new PatientLL(); // Look at this line
@@ -56,6 +56,7 @@ public class PatientQueue {
         System.out.println("Doctor C: " + ((double)docETAs[2]/60) + " hour wait");
         System.out.println("Doctor D: " + ((double)docETAs[3]/60) + " hour wait");
         System.out.println("Doctor E: " + ((double)docETAs[4]/60) + " hour wait");
+        System.out.println("Any doctor: " + ((double)docETAs[5]/60) + " hour wait");
 
         //String id = "c1a886e8-fc48-5b10-98cf-eb21b8d20220";
 

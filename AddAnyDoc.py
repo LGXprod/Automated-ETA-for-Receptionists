@@ -29,23 +29,23 @@ randDocName = ""
 
 for y in range(1, x):
 
-    randomDoc = random.randint(1,16)
+    randomDoc = random.randint(1,6)
 
     if randomDoc == 1:
         randDocName = randDr1
     elif randomDoc == 2:
         randDocName = randDr2
+    # elif randomDoc == 3:
+    #     randDocName = randDr3
+    # elif randomDoc == 4:
+    #     randDocName = randDr4
     elif randomDoc == 3:
-        randDocName = randDr3
-    elif randomDoc == 4:
-        randDocName = randDr4
-    elif randomDoc == 5:
         randDocName = randDr5
-    elif randomDoc == 6:
-        randDocName = randDr8
-    elif randomDoc == 7:
-        randDocName = randDr7
-    elif randomDoc >= 8:
+    # elif randomDoc == 6:
+    #     randDocName = randDr8
+    # elif randomDoc == 7:
+    #     randDocName = randDr7
+    elif randomDoc >= 4:
         randDocName = randDr6
 
     csvList[y].append(randDocName)

@@ -27,11 +27,7 @@ public class Patient {
         return this.fName;
     }
 
-    public Doctor getDocSpecified(){
-
-        return this.docSpecified;
-
-    }
+    public Doctor getDocSpecified(){ return this.docSpecified; }
 
     public String getGuid(){
         return this.guid;

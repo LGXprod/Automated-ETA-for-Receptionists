@@ -47,7 +47,7 @@ public class PatientLL {
     public int[] calculateTotalWait(){
 
         Patient patient = head;
-        int[] times = new int[]{0,0,0,0,0};
+        int[] times = new int[]{0,0,0,0,0,0};
 
         while (patient.next != null){
 
@@ -61,6 +61,8 @@ public class PatientLL {
                 times[3] = times[3] + 15;
             } else if (patient.getDocSpecified().getId().equals("5")){
                 times[4] = times[4] + 15;
+            } else if (patient.getDocSpecified().getId().equals("6")){
+                times[5] = times[5] + 15;
             }
 
             patient = patient.next;
@@ -77,6 +79,8 @@ public class PatientLL {
             times[3] = times[3] + 15;
         } else if (patient.getDocSpecified().getId().equals("5")){
             times[4] = times[4] + 15;
+        } else if (patient.getDocSpecified().getId().equals("6")){
+            times[5] = times[5] + 15;
         }
 
         //System.out.println(Arrays.toString(times));

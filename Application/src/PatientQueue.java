@@ -72,7 +72,7 @@ public class PatientQueue {
 
         int[] docETAs = patientLL.calculateTotalWait(availableDoctors);
         System.out.println(Arrays.toString(docETAs));
-        System.out.println("Doctor A: " + ((double)docETAs[0]/60) + " hour wait");
+        System.out.println("Doctor A: " + ((double)docETAs[0]/60) + " hour wait"); // problem could be that the ETA is correct for b but its supposed to be for a
         System.out.println("Doctor B: " + ((double)docETAs[1]/60) + " hour wait");
         System.out.println("Doctor C: " + ((double)docETAs[2]/60) + " hour wait");
         System.out.println("Doctor D: " + ((double)docETAs[3]/60) + " hour wait");

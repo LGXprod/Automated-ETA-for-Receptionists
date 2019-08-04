@@ -1,7 +1,11 @@
+import java.util.Scanner;
+
 public class Doctor {
 
     private String id;
     private String fName;
+    private int startHour;
+    private int startMin;
     private String sName;
     private int avgWaitTime;
 

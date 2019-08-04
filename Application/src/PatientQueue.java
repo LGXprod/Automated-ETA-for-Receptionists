@@ -1,15 +1,16 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
 public class PatientQueue {
 
-    //private Patient[] work = new Patient[250];
+    private ArrayList<Doctor> availableDoctors;
 
-    public PatientQueue(){
+    public PatientQueue(ArrayList<Doctor> availableDoctors){
 
-        //System.out.println("hello");
+        this.availableDoctors = availableDoctors;
 
     }
 
@@ -19,6 +20,7 @@ public class PatientQueue {
         File file = new File(fileName);
 
         PatientLL patientLL = new PatientLL(); // Look at this line
+        Doctor doctorSpecified;
 
         try {
 
@@ -31,7 +33,26 @@ public class PatientQueue {
                 if (patientQueue[0].equals("guid")){
                     continue;
                 }
-                Doctor doctorSpecified = new Doctor(patientQueue[7]);
+                // Doctor doctorSpecified = new Doctor(patientQueue[7]); // This line creates a unique doctor object for every patient despite the intention being to check which docs were in
+
+                if (patientQueue[7].equals("6")){
+                    doctorSpecified = availableDoctors.get(6);
+                } else if (patientQueue[7].equals("2")){
+                    doctorSpecified = availableDoctors.get(2);
+                } else if (patientQueue[7].equals("3")){
+                    doctorSpecified = availableDoctors.get(3);
+                } else if (patientQueue[7].equals("4")){
+                    doctorSpecified = availableDoctors.get(4);
+                } else if (patientQueue[7].equals("5")){
+                    doctorSpecified = availableDoctors.get(5);
+                } else if (patientQueue[7].equals("1")){
+                    doctorSpecified = availableDoctors.get(1);
+                } else if (patientQueue[7].equals("7")){
+                    doctorSpecified = availableDoctors.get(7);
+                } else{
+                    doctorSpecified = availableDoctors.get(8);
+                }
+
                 Patient patient = new Patient(patientQueue[0], patientQueue[1], patientQueue[3],
                         Integer.parseInt(patientQueue[4]), Integer.parseInt(patientQueue[5]), Boolean.parseBoolean(patientQueue[6]), doctorSpecified);
                 patientLL.insert(patient);

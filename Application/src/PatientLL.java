@@ -49,6 +49,8 @@ public class PatientLL {
 
         Patient patient = head;
         int[] times = new int[]{0,0,0,0,0,0};
+        System.out.println(doctors);
+        System.out.println(doctors.get(1).getfName());
 
         while (patient.next != null){
 

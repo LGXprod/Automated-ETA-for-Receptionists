@@ -3,6 +3,11 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
+import java.io.*;
+import java.util.*;
+import java.util.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 public class PatientQueue {
 
@@ -19,7 +24,15 @@ public class PatientQueue {
         String fileName = "patientListMorning.csv";
         File file = new File(fileName);
 
-        PatientLL patientLL = new PatientLL(); // Look at this line
+        PatientLL patientLL = new PatientLL();
+
+        initialCSV(file, patientLL);
+        updateCSV(file, patientLL);
+
+    }
+
+    public void initialCSV(File file, PatientLL patientLL){
+
         Doctor doctorSpecified;
 
         try {
@@ -68,8 +81,29 @@ public class PatientQueue {
 
         }
 
-        //patientLL.printAll();
+        showList(patientLL);
 
+    }
+
+    public void updateCSV(File file, PatientLL patientLL){
+
+        long lastChanged = file.lastModified();
+        DateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+        System.out.println(sdf.format(lastChanged));
+
+        try {
+            while (true){
+                Thread.sleep(2000);
+                initialCSV(file, patientLL);
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
+    public void showList(PatientLL patientLL){
         int[] docETAs = patientLL.calculateTotalWait(availableDoctors);
         System.out.println(Arrays.toString(docETAs));
         System.out.println("Doctor A: " + ((double)docETAs[0]/60) + " hour wait"); // problem could be that the ETA is correct for b but its supposed to be for a
@@ -92,10 +126,8 @@ public class PatientQueue {
         System.out.println("ETA for " + foundPatient.getFName() + " to see "
                 + foundPatient.getDocSpecified().getfName() + " is " + waitHour + " hours and " +
                 waitMin + " minutes.");
-        //System.out.println(patientLL.patientWait(foundPatient, id));
-
-        // Need to split csv into much smaller lists to test methods of estimating times
-        // Then need to create a python script that appends new instances of the csv and make the java app accommodate this
     }
+
+
 
 }

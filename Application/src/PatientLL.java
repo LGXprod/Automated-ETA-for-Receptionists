@@ -115,11 +115,31 @@ public class PatientLL {
 
     }
 
+//    public int patientWait(Patient patientWaiting, String id){
+//
+//        Patient patient = head;
+//        Doctor docSpecified = patientWaiting.getDocSpecified();
+//        int time = 0;
+//
+//        while (patient.next != null && !id.equals(patient.getGuid())){
+//
+//            if (docSpecified == patient.getDocSpecified()){
+//                time = time + 15;
+//            }
+//            patient = patient.next;
+//
+//        }
+//
+//        return time;
+//
+//    }
+
     public int patientWait(Patient patientWaiting, String id){
 
         Patient patient = head;
         Doctor docSpecified = patientWaiting.getDocSpecified();
         int time = 0;
+        int[] timeArrived = new int[] {patientWaiting.getHourArrived(), patientWaiting.getMinArrived()};
 
         while (patient.next != null && !id.equals(patient.getGuid())){
 
@@ -131,6 +151,16 @@ public class PatientLL {
         }
 
         return time;
+
+    }
+
+    public void reset(){
+
+        Patient patient = head;
+
+        while (patient.next != null){
+            
+        }
 
     }
 

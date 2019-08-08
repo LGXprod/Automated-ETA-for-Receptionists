@@ -33,6 +33,10 @@ public class Patient {
         return this.guid;
     }
 
+    public int getHourArrived() { return this.hourArrived; }
+
+    public int getMinArrived() { return this.minArrived; }
+
 
 
 }

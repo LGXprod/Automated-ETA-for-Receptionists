@@ -119,7 +119,7 @@ public class PatientQueue {
         System.out.print("Input user ID: ");
         String id = sc.nextLine();
         Patient foundPatient = patientLL.findPatient(id);
-        double waitTime = ((double)patientLL.patientWait(foundPatient, id))/60;
+        double waitTime = ((double)patientLL.patientWait(foundPatient, id, availableDoctors))/60;
         int waitHour = (int)waitTime;
         double waitMin = (waitTime-waitHour)*60;
 

@@ -136,12 +136,49 @@ public class PatientLL {
 //
 //    }
 
-    public int patientWait(Patient patientWaiting, String id){ // Going to have to rewrite this so it splits doctors into individual tables then calculates times
+    public ArrayList<Patient> doctorQueue(ArrayList<Doctor> doctors, int doctorIndex){
+
+        Patient patient = head;
+        ArrayList<Patient> patientListForDoc = new ArrayList<>();
+
+
+        while (patient.next != null){
+
+            if (patient.getDocSpecified() == doctors.get(doctorIndex) || patient.getDocSpecified() == doctors.get(6)){
+                patientListForDoc.add(patient);
+            }
+
+            patient = patient.next;
+
+        }
+
+        if (patient.getDocSpecified() == doctors.get(doctorIndex) || patient.getDocSpecified() == doctors.get(6)){
+            patientListForDoc.add(patient);
+        }
+
+        return patientListForDoc;
+
+    }
+
+    public int patientWait(Patient patientWaiting, String id, ArrayList<Doctor> doctors){ // Going to have to rewrite this so it splits doctors into individual tables then calculates times
 
         Patient patient = head;
         Doctor docSpecified = patientWaiting.getDocSpecified();
         int time = 0;
-        int[] timeArrived = new int[] {patientWaiting.getHourArrived(), patientWaiting.getMinArrived()};
+
+        ArrayList<ArrayList<Patient>> doctorLists = new ArrayList<>();
+
+        for (int i = 0; i < doctors.size(); ++i){
+            doctorLists.add(doctorQueue(doctors, i));
+        }
+
+        for (int i = 0; i < doctorLists.size(); ++i){
+            System.out.println(doctors.get(i).getfName());
+            for (Patient x : doctorLists.get(i)){
+                System.out.println(x.getFName());
+            }
+        }
+
 
         while (patient.next != null && !id.equals(patient.getGuid())){
 

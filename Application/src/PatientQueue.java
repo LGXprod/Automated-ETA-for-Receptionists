@@ -81,6 +81,8 @@ public class PatientQueue {
 
         }
 
+        patientLL.doctorQueue(availableDoctors);
+
         showList(patientLL);
 
     }

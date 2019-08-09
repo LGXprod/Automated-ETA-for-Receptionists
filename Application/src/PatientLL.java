@@ -136,27 +136,43 @@ public class PatientLL {
 //
 //    }
 
-    public ArrayList<Patient> doctorQueue(ArrayList<Doctor> doctors, int doctorIndex){
+    public ArrayList<ArrayList<Patient>> doctorQueue(ArrayList<Doctor> doctors){
 
         Patient patient = head;
-        ArrayList<Patient> patientListForDoc = new ArrayList<>();
+        Patient first = patient;
+        ArrayList<ArrayList<Patient>> queueDoctors = new ArrayList<>();
+        ArrayList<Patient> queueDoc = new ArrayList<>();
 
+        for (Doctor x : doctors){
+            System.out.println(x.getfName());
+            while (patient.next != null){
+                if (patient.getDocSpecified() == x){
+                    queueDoc.add(patient);
+                }
 
-        while (patient.next != null){
-
-            if (patient.getDocSpecified() == doctors.get(doctorIndex) || patient.getDocSpecified() == doctors.get(6)){
-                patientListForDoc.add(patient);
+                patient = patient.next;
             }
 
-            patient = patient.next;
+            if (patient.getDocSpecified() == x){
+                queueDoc.add(patient);
+            }
+
+            System.out.println(queueDoc.toString());
+
+            queueDoctors.add(queueDoc);
+            queueDoc.clear();
+            patient = first;
 
         }
 
-        if (patient.getDocSpecified() == doctors.get(doctorIndex) || patient.getDocSpecified() == doctors.get(6)){
-            patientListForDoc.add(patient);
+        for (int i = 0; i < queueDoctors.size(); ++i){
+            for (Patient p : queueDoctors.get(0)){
+                System.out.println(p.getFName());
+            }
+            System.out.println();
         }
 
-        return patientListForDoc;
+        return queueDoctors;
 
     }
 
@@ -165,20 +181,6 @@ public class PatientLL {
         Patient patient = head;
         Doctor docSpecified = patientWaiting.getDocSpecified();
         int time = 0;
-
-        ArrayList<ArrayList<Patient>> doctorLists = new ArrayList<>();
-
-        for (int i = 0; i < doctors.size(); ++i){
-            doctorLists.add(doctorQueue(doctors, i));
-        }
-
-        for (int i = 0; i < doctorLists.size(); ++i){
-            System.out.println(doctors.get(i).getfName());
-            for (Patient x : doctorLists.get(i)){
-                System.out.println(x.getFName());
-            }
-        }
-
 
         while (patient.next != null && !id.equals(patient.getGuid())){
 

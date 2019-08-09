@@ -49,8 +49,8 @@ public class PatientLL {
 
         Patient patient = head;
         int[] times = new int[]{0,0,0,0,0,0};
-        System.out.println(doctors);
-        System.out.println(doctors.get(1).getfName());
+
+        ArrayList<Patient> waitingDocA = new ArrayList<>();
 
         while (patient.next != null){
 
@@ -64,9 +64,11 @@ public class PatientLL {
                 times[3] = times[3] + 15;
             } else if (patient.getDocSpecified() == doctors.get(4)){
                 times[4] = times[4] + 15;
-            } else if (patient.getDocSpecified() == doctors.get(5)){
-                times[5] = times[5] + 15;
             }
+
+//            else if (patient.getDocSpecified() == doctors.get(5)){
+//                times[5] = times[5] + 15;
+//            }
 
             patient = patient.next;
 
@@ -134,7 +136,7 @@ public class PatientLL {
 //
 //    }
 
-    public int patientWait(Patient patientWaiting, String id){
+    public int patientWait(Patient patientWaiting, String id){ // Going to have to rewrite this so it splits doctors into individual tables then calculates times
 
         Patient patient = head;
         Doctor docSpecified = patientWaiting.getDocSpecified();
@@ -154,14 +156,13 @@ public class PatientLL {
 
     }
 
-    public void reset(){
-
-        Patient patient = head;
-
-        while (patient.next != null){
-            
-        }
-
-    }
+//    public Patient deletePatient(String id){
+//
+//        Patient patientToDelete = findPatient(id);
+//        Patient patient = head;
+//
+//
+//
+//    }
 
 }

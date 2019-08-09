@@ -27,7 +27,7 @@ public class PatientQueue {
         PatientLL patientLL = new PatientLL();
 
         initialCSV(file, patientLL);
-        updateCSV(file, patientLL);
+        //updateCSV(file, patientLL);
 
     }
 

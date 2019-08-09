@@ -1,7 +1,7 @@
 guid, first, last,gender,hour,minutes,newPatient,doctor
 db0134ed-3f02-51af-9f98-4f5b606c370f,Virginia,Ellis,Female,8,8,TRUE,2
 89e1c123-987a-53b4-a9bc-c54edbaa745f,Lucille,Mack,Female,8,12,FALSE,5
-dfac077d-3e92-5509-881c-a0e628b0eddd,Elsie,Reynolds,Male,8,19,FALSE,6
+dfac077d-3e92-5509-881c-a0e628b0eddd,Elsie,Reynolds,Male,8,19,FALSE,3
 a54f8673-8df5-5a99-8593-b0f028ee44d2,Steve,Briggs,Male,8,24,FALSE,6
 3ae3e7e4-775f-5a1d-92ef-e7c577d64019,Brandon,Patrick,Male,8,31,FALSE,6
 91eb59fb-69b4-5d51-9503-375feedcc170,Bernice,Price,Male,8,38,FALSE,2

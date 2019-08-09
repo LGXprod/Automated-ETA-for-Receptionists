@@ -142,34 +142,78 @@ public class PatientLL {
         Patient first = patient;
         ArrayList<ArrayList<Patient>> queueDoctors = new ArrayList<>();
         ArrayList<Patient> queueDoc = new ArrayList<>();
-
-        for (Doctor x : doctors){
-            System.out.println(x.getfName());
-            while (patient.next != null){
-                if (patient.getDocSpecified() == x){
-                    queueDoc.add(patient);
-                }
-
-                patient = patient.next;
-            }
-
-            if (patient.getDocSpecified() == x){
-                queueDoc.add(patient);
-            }
-
-            System.out.println(queueDoc.toString());
-
+        for (int i = 0; i <= 5; ++i){
             queueDoctors.add(queueDoc);
-            queueDoc.clear();
-            patient = first;
-
         }
 
-        for (int i = 0; i < queueDoctors.size(); ++i){
-            for (Patient p : queueDoctors.get(0)){
-                System.out.println(p.getFName());
+        while (patient.next != null){ // Has to be done like this to keep each queueDoc instance in sync
+
+            if (patient.getDocSpecified() == doctors.get(0)){
+
+                queueDoctors.get(0).add(patient);
+                System.out.println(1);
+
+            } else if (patient.getDocSpecified() == doctors.get(1)){
+
+                queueDoctors.get(1).add(patient);
+                System.out.println(2);
+                System.out.println(queueDoctors.get(1));
+                System.out.println(queueDoctors);
+
+            } else if (patient.getDocSpecified() == doctors.get(2)){
+
+                queueDoctors.get(2).add(patient);
+                System.out.println(3);
+
+            } else if (patient.getDocSpecified() == doctors.get(3)){
+
+                queueDoctors.get(3).add(patient);
+                System.out.println(4);
+
+            } else if (patient.getDocSpecified() == doctors.get(4)){
+
+                queueDoctors.get(4).add(patient);
+                System.out.println(5);
+
+            } else if (patient.getDocSpecified() == doctors.get(5)){
+
+                System.out.println(6);
+                int[] partialETAs = new int[6];
+                int sum = 0;
+                System.out.println(queueDoctors);
+
+                for (int i = 0; i < queueDoctors.size(); ++i){
+
+                    for (int y = 0; y < queueDoctors.get(i).size(); ++y){
+                        sum += 15;
+                    }
+
+                    partialETAs[i] = sum;
+                    sum = 0;
+
+                }
+
+                System.out.println(Arrays.toString(partialETAs));
+
+                int min = partialETAs[0];
+                int minIndex = 0;
+
+                for (int x = 1; x < partialETAs.length; ++x){
+
+                    if (min > partialETAs[x]){
+
+                        min = partialETAs[x];
+                        minIndex = x;
+
+                    }
+
+                }
+
+                queueDoctors.get(minIndex).add(patient);
             }
-            System.out.println();
+
+            patient = patient.next;
+
         }
 
         return queueDoctors;

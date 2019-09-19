@@ -48,22 +48,27 @@ public class PatientQueue {
                 }
                 // Doctor doctorSpecified = new Doctor(patientQueue[7]); // This line creates a unique doctor object for every patient despite the intention being to check which docs were in
 
-                if (patientQueue[7].equals("6")){
-                    doctorSpecified = availableDoctors.get(5);
-                } else if (patientQueue[7].equals("2")){
-                    doctorSpecified = availableDoctors.get(1);
-                } else if (patientQueue[7].equals("3")){
-                    doctorSpecified = availableDoctors.get(2);
-                } else if (patientQueue[7].equals("4")){
-                    doctorSpecified = availableDoctors.get(3);
-                } else if (patientQueue[7].equals("5")){
-                    doctorSpecified = availableDoctors.get(4);
-                } else if (patientQueue[7].equals("1")){
-                    doctorSpecified = availableDoctors.get(0);
-                } else if (patientQueue[7].equals("7")){
-                    doctorSpecified = availableDoctors.get(6);
-                } else{
-                    doctorSpecified = availableDoctors.get(7);
+                switch (patientQueue[7]){
+                    case "6":
+                        doctorSpecified = availableDoctors.get(5);
+                        break;
+                    case "2":
+                        doctorSpecified = availableDoctors.get(1);
+                        break;
+                    case "3":
+                        doctorSpecified = availableDoctors.get(2);
+                        break;
+                    case "4":
+                        doctorSpecified = availableDoctors.get(3);
+                        break;
+                    case "5":
+                        doctorSpecified = availableDoctors.get(4);
+                        break;
+                    case "1":
+                        doctorSpecified = availableDoctors.get(6);
+                        break;
+                    default:
+                        doctorSpecified = availableDoctors.get(7);
                 }
 
                 Patient patient = new Patient(patientQueue[0], patientQueue[1], patientQueue[3],

@@ -22,7 +22,7 @@ public class Doctor {
         } else if (id.equals("4")){
             fName = "Doctor D";
         } else if (id.equals("5")){
-            fName = "Doctor B";
+            fName = "Doctor E";
         } else if (id.equals("1")){
             fName = "Doctor A";
         } else if (id.equals("7")){

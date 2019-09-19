@@ -12,6 +12,8 @@ import java.text.SimpleDateFormat;
 public class PatientQueue {
 
     private ArrayList<Doctor> availableDoctors;
+    private PatientLL[] patientLLs;
+
 
     public PatientQueue(ArrayList<Doctor> availableDoctors){
 
@@ -24,20 +26,27 @@ public class PatientQueue {
         String fileName = "patientListMorning.csv";
         File file = new File(fileName);
 
-        PatientLL patientLL = new PatientLL();
+        patientLLs = new PatientLL[8];
 
-        initialCSV(file, patientLL);
-        //updateCSV(file, patientLL);
+        int count = 0;
+        for (Doctor doctor : availableDoctors){
+            patientLLs[count] = new PatientLL(doctor);
+            ++count;
+        }
+
+        initialCSV(file);
+        showLists();
 
     }
 
-    public void initialCSV(File file, PatientLL patientLL){
+    public void initialCSV(File file){
 
         Doctor doctorSpecified;
 
         try {
 
             Scanner inputStream = new Scanner(file);
+            Patient patient;
 
             while  (inputStream.hasNextLine()){
 
@@ -46,35 +55,61 @@ public class PatientQueue {
                 if (patientQueue[0].equals("guid")){
                     continue;
                 }
-                // Doctor doctorSpecified = new Doctor(patientQueue[7]); // This line creates a unique doctor object for every patient despite the intention being to check which docs were in
 
+                //System.out.println(patientQueue[7]);
                 switch (patientQueue[7]){
                     case "6":
-                        doctorSpecified = availableDoctors.get(5);
+                        PatientLL min = patientLLs[0];
+                        for (PatientLL patientLLCheck : patientLLs){
+                            if (patientLLCheck.size() <= min.size()){
+                                min = patientLLCheck;
+                            }
+                        }
+                        patient = new Patient(patientQueue[0], patientQueue[1], patientQueue[2],
+                                Integer.parseInt(patientQueue[4]), Integer.parseInt(patientQueue[5]), Boolean.parseBoolean(patientQueue[6]), availableDoctors.get(5));
+                        min.insert(patient);
                         break;
                     case "2":
-                        doctorSpecified = availableDoctors.get(1);
+                        doctorSpecified = availableDoctors.get(1); // doctor b
+                        patient = new Patient(patientQueue[0], patientQueue[1], patientQueue[2],
+                                Integer.parseInt(patientQueue[4]), Integer.parseInt(patientQueue[5]), Boolean.parseBoolean(patientQueue[6]), doctorSpecified);
+                        patientLLs[1].insert(patient);
                         break;
                     case "3":
-                        doctorSpecified = availableDoctors.get(2);
+                        doctorSpecified = availableDoctors.get(2); // doctor c
+                        patient = new Patient(patientQueue[0], patientQueue[1], patientQueue[2],
+                                Integer.parseInt(patientQueue[4]), Integer.parseInt(patientQueue[5]), Boolean.parseBoolean(patientQueue[6]), doctorSpecified);
+                        patientLLs[2].insert(patient);
                         break;
                     case "4":
-                        doctorSpecified = availableDoctors.get(3);
+                        doctorSpecified = availableDoctors.get(3); // doctor d
+                        patient = new Patient(patientQueue[0], patientQueue[1], patientQueue[2],
+                                Integer.parseInt(patientQueue[4]), Integer.parseInt(patientQueue[5]), Boolean.parseBoolean(patientQueue[6]), doctorSpecified);
+                        patientLLs[3].insert(patient);
                         break;
                     case "5":
-                        doctorSpecified = availableDoctors.get(4);
+                        doctorSpecified = availableDoctors.get(4); // doctor e
+                        patient = new Patient(patientQueue[0], patientQueue[1], patientQueue[2],
+                                Integer.parseInt(patientQueue[4]), Integer.parseInt(patientQueue[5]), Boolean.parseBoolean(patientQueue[6]), doctorSpecified);
+                        patientLLs[4].insert(patient);
                         break;
                     case "1":
-                        doctorSpecified = availableDoctors.get(6);
+                        doctorSpecified = availableDoctors.get(6); // doctor A
+                        patient = new Patient(patientQueue[0], patientQueue[1], patientQueue[2],
+                                Integer.parseInt(patientQueue[4]), Integer.parseInt(patientQueue[5]), Boolean.parseBoolean(patientQueue[6]), doctorSpecified);
+                        patientLLs[0].insert(patient);
                         break;
-                    default:
-                        doctorSpecified = availableDoctors.get(7);
+                    case "7":
+                        doctorSpecified = availableDoctors.get(7); // any female doctor
+                        patient = new Patient(patientQueue[0], patientQueue[1], patientQueue[2],
+                                Integer.parseInt(patientQueue[4]), Integer.parseInt(patientQueue[5]), Boolean.parseBoolean(patientQueue[6]), doctorSpecified);
+                        patientLLs[6].insert(patient);
+                    case "8":
+                        doctorSpecified = availableDoctors.get(8); // any female doctor
+                        patient = new Patient(patientQueue[0], patientQueue[1], patientQueue[2],
+                                Integer.parseInt(patientQueue[4]), Integer.parseInt(patientQueue[5]), Boolean.parseBoolean(patientQueue[6]), doctorSpecified);
+                        patientLLs[7].insert(patient);
                 }
-
-                Patient patient = new Patient(patientQueue[0], patientQueue[1], patientQueue[3],
-                        Integer.parseInt(patientQueue[4]), Integer.parseInt(patientQueue[5]), Boolean.parseBoolean(patientQueue[6]), doctorSpecified);
-                patientLL.insert(patient);
-
 
             }
 
@@ -86,12 +121,21 @@ public class PatientQueue {
 
         }
 
-        patientLL.doctorQueue(availableDoctors);
 
-        showList(patientLL);
 
     }
 
+    public void showLists(){
+
+        for (PatientLL patientLL : patientLLs){
+            System.out.println(patientLL.getDoctorSpecified().getfName());
+            patientLL.printAll();
+            System.out.println();
+        }
+
+    }
+
+    /*
     public void updateCSV(File file, PatientLL patientLL){
 
         long lastChanged = file.lastModified();
@@ -110,6 +154,7 @@ public class PatientQueue {
 
     }
 
+    /*
     public void showList(PatientLL patientLL){
         int[] docETAs = patientLL.calculateTotalWait(availableDoctors);
         //System.out.println(Arrays.toString(docETAs));
@@ -133,7 +178,7 @@ public class PatientQueue {
         System.out.println("ETA for " + foundPatient.getFName() + " to see "
                 + foundPatient.getDocSpecified().getfName() + " is " + waitHour + " hours and " +
                 waitMin + " minutes.");
-    }
+    }*/
 
 
 

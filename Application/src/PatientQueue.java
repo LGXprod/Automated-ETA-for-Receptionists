@@ -36,7 +36,30 @@ public class PatientQueue {
 
         initialCSV(file);
         showLists();
+        calculateTotalWait();
 
+    }
+
+    public void calculateTotalWait(){
+        int totalWait = 0;
+        for (PatientLL patientLL : patientLLs){
+            if (patientLL.getDoctorSpecified() != availableDoctors.get(5)) {
+                System.out.println(patientLL.getDoctorSpecified().getfName() + "'s wait time = " + (double)patientLL.calculateTotalWait()/60.0 + " hours.");
+                totalWait += patientLL.calculateTotalWait();
+            }
+        }
+        System.out.println("The wait for any doctor is " + (double)minWait().calculateTotalWait()/60.0 + " hours.");
+        System.out.println("Total wait = " + (double)totalWait/60.0 + " hours.");
+    }
+
+    public PatientLL minWait(){
+        PatientLL min = patientLLs[0];
+        for (PatientLL patientLLCheck : patientLLs){
+            if (patientLLCheck.size() <= min.size()){
+                min = patientLLCheck;
+            }
+        }
+        return min;
     }
 
     public void initialCSV(File file){
@@ -59,12 +82,7 @@ public class PatientQueue {
                 //System.out.println(patientQueue[7]);
                 switch (patientQueue[7]){
                     case "6":
-                        PatientLL min = patientLLs[0];
-                        for (PatientLL patientLLCheck : patientLLs){
-                            if (patientLLCheck.size() <= min.size()){
-                                min = patientLLCheck;
-                            }
-                        }
+                        PatientLL min = minWait();
                         patient = new Patient(patientQueue[0], patientQueue[1], patientQueue[2],
                                 Integer.parseInt(patientQueue[4]), Integer.parseInt(patientQueue[5]), Boolean.parseBoolean(patientQueue[6]), availableDoctors.get(5));
                         min.insert(patient);
@@ -94,7 +112,7 @@ public class PatientQueue {
                         patientLLs[4].insert(patient);
                         break;
                     case "1":
-                        doctorSpecified = availableDoctors.get(6); // doctor A
+                        doctorSpecified = availableDoctors.get(0); // doctor A
                         patient = new Patient(patientQueue[0], patientQueue[1], patientQueue[2],
                                 Integer.parseInt(patientQueue[4]), Integer.parseInt(patientQueue[5]), Boolean.parseBoolean(patientQueue[6]), doctorSpecified);
                         patientLLs[0].insert(patient);
@@ -128,7 +146,7 @@ public class PatientQueue {
     public void showLists(){
 
         for (PatientLL patientLL : patientLLs){
-            System.out.println(patientLL.getDoctorSpecified().getfName());
+            System.out.println(patientLL.getDoctorSpecified().getfName() + ":");
             patientLL.printAll();
             System.out.println();
         }
@@ -152,32 +170,6 @@ public class PatientQueue {
         }
 
 
-    }
-
-    /*
-    public void showList(PatientLL patientLL){
-        int[] docETAs = patientLL.calculateTotalWait(availableDoctors);
-        //System.out.println(Arrays.toString(docETAs));
-        System.out.println("Doctor A: " + ((double)docETAs[0]/60) + " hour wait"); // problem could be that the ETA is correct for b but its supposed to be for a
-        System.out.println("Doctor B: " + ((double)docETAs[1]/60) + " hour wait");
-        System.out.println("Doctor C: " + ((double)docETAs[2]/60) + " hour wait");
-        System.out.println("Doctor D: " + ((double)docETAs[3]/60) + " hour wait");
-        System.out.println("Doctor E: " + ((double)docETAs[4]/60) + " hour wait");
-        System.out.println("Any doctor: " + ((double)docETAs[5]/60) + " hour wait");
-
-        //String id = "c1a886e8-fc48-5b10-98cf-eb21b8d20220";
-
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Input user ID: ");
-        String id = sc.nextLine();
-        Patient foundPatient = patientLL.findPatient(id);
-        double waitTime = ((double)patientLL.patientWait(foundPatient, id, availableDoctors))/60;
-        int waitHour = (int)waitTime;
-        double waitMin = (waitTime-waitHour)*60;
-
-        System.out.println("ETA for " + foundPatient.getFName() + " to see "
-                + foundPatient.getDocSpecified().getfName() + " is " + waitHour + " hours and " +
-                waitMin + " minutes.");
     }*/
 
 

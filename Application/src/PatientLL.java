@@ -53,13 +53,6 @@ public class PatientLL {
         }
     }
 
-    public Patient firstPatient(){
-        if (head != null){
-            return head;
-        }
-        return null;
-    }
-
     public void printAll(){
 
         Patient patient = head;
@@ -77,7 +70,7 @@ public class PatientLL {
 
     }
 
-    public int calculateTotal(){
+    public int calculateTotalWait(){
 
         Patient patient = head;
         int time = 0;

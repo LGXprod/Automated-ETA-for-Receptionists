@@ -13,6 +13,7 @@ public class PatientQueue {
 
     private ArrayList<Doctor> availableDoctors;
     private PatientLL[] patientLLs;
+    private Scanner sc = new Scanner(System.in);
 
 
     public PatientQueue(ArrayList<Doctor> availableDoctors){
@@ -37,10 +38,11 @@ public class PatientQueue {
         initialCSV(file);
         showLists();
         calculateTotalWait();
+        findPatientWait();
 
     }
 
-    public void calculateTotalWait(){
+    private void calculateTotalWait(){
         int totalWait = 0;
         for (PatientLL patientLL : patientLLs){
             if (patientLL.getDoctorSpecified() != availableDoctors.get(5)) {
@@ -52,7 +54,7 @@ public class PatientQueue {
         System.out.println("Total wait = " + (double)totalWait/60.0 + " hours.");
     }
 
-    public PatientLL minWait(){
+    private PatientLL minWait(){
         PatientLL min = patientLLs[0];
         for (PatientLL patientLLCheck : patientLLs){
             if (patientLLCheck.size() <= min.size()){
@@ -62,7 +64,7 @@ public class PatientQueue {
         return min;
     }
 
-    public void initialCSV(File file){
+    private void initialCSV(File file){
 
         Doctor doctorSpecified;
 
@@ -143,7 +145,7 @@ public class PatientQueue {
 
     }
 
-    public void showLists(){
+    private void showLists(){
 
         for (PatientLL patientLL : patientLLs){
             System.out.println(patientLL.getDoctorSpecified().getfName() + ":");
@@ -151,6 +153,17 @@ public class PatientQueue {
             System.out.println();
         }
 
+    }
+
+    private void findPatientWait(){
+        System.out.print("Enter patient ID: ");
+        String id = sc.nextLine();
+        for (PatientLL patientLL : patientLLs){
+            Patient patient = patientLL.findPatient(id);
+            if (patient != null){
+                System.out.println(patient.getFName() + "'s wait time = " + patientLL.findPatientWait(patient) + " minutes.");
+            }
+        }
     }
 
     /*

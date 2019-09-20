@@ -93,9 +93,7 @@ public class PatientLL {
         Patient patient = head;
 
         while (patient.next != null && !patient.getGuid().equals(id)){
-
             patient = patient.next;
-
         }
 
         if (patient.getGuid().equals(id)){
@@ -108,6 +106,24 @@ public class PatientLL {
 
         }
 
+
+    }
+
+    public int findPatientWait(Patient patientX){
+
+        Patient patient = head;
+        int time = 0;
+
+        while (patient.next != null && patient != patientX){
+
+            time += 15;
+            patient = patient.next;
+
+        }
+
+        time += 15;
+
+        return time;
 
     }
 

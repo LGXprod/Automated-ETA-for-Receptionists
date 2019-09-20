@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="af62e412-bb61-4ad1-a880-11ffdda308c9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Application/src/PatientLL.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/PatientLL.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/src/PatientQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/src/PatientQueue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Application/PatientLL.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Application/PatientLL.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Application/PatientQueue.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Application/PatientQueue.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

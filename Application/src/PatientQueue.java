@@ -57,7 +57,7 @@ public class PatientQueue {
     private PatientLL minWait(){
         PatientLL min = patientLLs[0];
         for (PatientLL patientLLCheck : patientLLs){
-            if (patientLLCheck.size() <= min.size()){
+            if (patientLLCheck.size() <= min.size() && patientLLCheck.getDoctorSpecified() != availableDoctors.get(5)){
                 min = patientLLCheck;
             }
         }
@@ -140,8 +140,6 @@ public class PatientQueue {
             e.printStackTrace();
 
         }
-
-
 
     }
 

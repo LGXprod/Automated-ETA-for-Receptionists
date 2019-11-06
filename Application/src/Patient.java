@@ -37,6 +37,9 @@ public class Patient {
 
     public int getMinArrived() { return this.minArrived; }
 
-
+    @Override
+    public String toString(){
+        return "GUID: " + guid + ", fName: " + fName + ", sName: " + sName + ", docSpecified: " + docSpecified.getfName();
+    }
 
 }

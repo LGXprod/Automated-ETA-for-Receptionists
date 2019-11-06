@@ -12,6 +12,9 @@ import java.text.SimpleDateFormat;
 public class PatientQueue {
 
     private ArrayList<Doctor> availableDoctors;
+    private PatientLL[] patientLLs;
+    private Scanner sc = new Scanner(System.in);
+
 
     public PatientQueue(ArrayList<Doctor> availableDoctors){
 
@@ -24,20 +27,51 @@ public class PatientQueue {
         String fileName = "patientListMorning.csv";
         File file = new File(fileName);
 
-        PatientLL patientLL = new PatientLL();
+        patientLLs = new PatientLL[8];
 
-        initialCSV(file, patientLL);
-        //updateCSV(file, patientLL);
+        int count = 0;
+        for (Doctor doctor : availableDoctors){
+            patientLLs[count] = new PatientLL(doctor);
+            ++count;
+        }
+
+        initialCSV(file);
+        showLists();
+        calculateTotalWait();
+        findPatientWait();
 
     }
 
-    public void initialCSV(File file, PatientLL patientLL){
+    private void calculateTotalWait(){
+        int totalWait = 0;
+        for (PatientLL patientLL : patientLLs){
+            if (patientLL.getDoctorSpecified() != availableDoctors.get(5)) {
+                System.out.println(patientLL.getDoctorSpecified().getfName() + "'s wait time = " + (double)patientLL.calculateTotalWait()/60.0 + " hours.");
+                totalWait += patientLL.calculateTotalWait();
+            }
+        }
+        System.out.println("The wait for any doctor is " + (double)minWait().calculateTotalWait()/60.0 + " hours.");
+        System.out.println("Total wait = " + (double)totalWait/60.0 + " hours.");
+    }
+
+    private PatientLL minWait(){
+        PatientLL min = patientLLs[0];
+        for (PatientLL patientLLCheck : patientLLs){
+            if (patientLLCheck.size() <= min.size() && patientLLCheck.getDoctorSpecified() != availableDoctors.get(5)){
+                min = patientLLCheck;
+            }
+        }
+        return min;
+    }
+
+    private void initialCSV(File file){
 
         Doctor doctorSpecified;
 
         try {
 
             Scanner inputStream = new Scanner(file);
+            Patient patient;
 
             while  (inputStream.hasNextLine()){
 
@@ -46,30 +80,56 @@ public class PatientQueue {
                 if (patientQueue[0].equals("guid")){
                     continue;
                 }
-                // Doctor doctorSpecified = new Doctor(patientQueue[7]); // This line creates a unique doctor object for every patient despite the intention being to check which docs were in
 
-                if (patientQueue[7].equals("6")){
-                    doctorSpecified = availableDoctors.get(5);
-                } else if (patientQueue[7].equals("2")){
-                    doctorSpecified = availableDoctors.get(1);
-                } else if (patientQueue[7].equals("3")){
-                    doctorSpecified = availableDoctors.get(2);
-                } else if (patientQueue[7].equals("4")){
-                    doctorSpecified = availableDoctors.get(3);
-                } else if (patientQueue[7].equals("5")){
-                    doctorSpecified = availableDoctors.get(4);
-                } else if (patientQueue[7].equals("1")){
-                    doctorSpecified = availableDoctors.get(0);
-                } else if (patientQueue[7].equals("7")){
-                    doctorSpecified = availableDoctors.get(6);
-                } else{
-                    doctorSpecified = availableDoctors.get(7);
+                //System.out.println(patientQueue[7]);
+                switch (patientQueue[7]){
+                    case "6":
+                        PatientLL min = minWait();
+                        patient = new Patient(patientQueue[0], patientQueue[1], patientQueue[2],
+                                Integer.parseInt(patientQueue[4]), Integer.parseInt(patientQueue[5]), Boolean.parseBoolean(patientQueue[6]), availableDoctors.get(5));
+                        min.insert(patient);
+                        break;
+                    case "2":
+                        doctorSpecified = availableDoctors.get(1); // doctor b
+                        patient = new Patient(patientQueue[0], patientQueue[1], patientQueue[2],
+                                Integer.parseInt(patientQueue[4]), Integer.parseInt(patientQueue[5]), Boolean.parseBoolean(patientQueue[6]), doctorSpecified);
+                        patientLLs[1].insert(patient);
+                        break;
+                    case "3":
+                        doctorSpecified = availableDoctors.get(2); // doctor c
+                        patient = new Patient(patientQueue[0], patientQueue[1], patientQueue[2],
+                                Integer.parseInt(patientQueue[4]), Integer.parseInt(patientQueue[5]), Boolean.parseBoolean(patientQueue[6]), doctorSpecified);
+                        patientLLs[2].insert(patient);
+                        break;
+                    case "4":
+                        doctorSpecified = availableDoctors.get(3); // doctor d
+                        patient = new Patient(patientQueue[0], patientQueue[1], patientQueue[2],
+                                Integer.parseInt(patientQueue[4]), Integer.parseInt(patientQueue[5]), Boolean.parseBoolean(patientQueue[6]), doctorSpecified);
+                        patientLLs[3].insert(patient);
+                        break;
+                    case "5":
+                        doctorSpecified = availableDoctors.get(4); // doctor e
+                        patient = new Patient(patientQueue[0], patientQueue[1], patientQueue[2],
+                                Integer.parseInt(patientQueue[4]), Integer.parseInt(patientQueue[5]), Boolean.parseBoolean(patientQueue[6]), doctorSpecified);
+                        patientLLs[4].insert(patient);
+                        break;
+                    case "1":
+                        doctorSpecified = availableDoctors.get(0); // doctor A
+                        patient = new Patient(patientQueue[0], patientQueue[1], patientQueue[2],
+                                Integer.parseInt(patientQueue[4]), Integer.parseInt(patientQueue[5]), Boolean.parseBoolean(patientQueue[6]), doctorSpecified);
+                        patientLLs[0].insert(patient);
+                        break;
+                    case "7":
+                        doctorSpecified = availableDoctors.get(7); // any female doctor
+                        patient = new Patient(patientQueue[0], patientQueue[1], patientQueue[2],
+                                Integer.parseInt(patientQueue[4]), Integer.parseInt(patientQueue[5]), Boolean.parseBoolean(patientQueue[6]), doctorSpecified);
+                        patientLLs[6].insert(patient);
+                    case "8":
+                        doctorSpecified = availableDoctors.get(8); // any female doctor
+                        patient = new Patient(patientQueue[0], patientQueue[1], patientQueue[2],
+                                Integer.parseInt(patientQueue[4]), Integer.parseInt(patientQueue[5]), Boolean.parseBoolean(patientQueue[6]), doctorSpecified);
+                        patientLLs[7].insert(patient);
                 }
-
-                Patient patient = new Patient(patientQueue[0], patientQueue[1], patientQueue[3],
-                        Integer.parseInt(patientQueue[4]), Integer.parseInt(patientQueue[5]), Boolean.parseBoolean(patientQueue[6]), doctorSpecified);
-                patientLL.insert(patient);
-
 
             }
 
@@ -81,12 +141,30 @@ public class PatientQueue {
 
         }
 
-        patientLL.doctorQueue(availableDoctors);
+    }
 
-        showList(patientLL);
+    private void showLists(){
+
+        for (PatientLL patientLL : patientLLs){
+            System.out.println(patientLL.getDoctorSpecified().getfName() + ":");
+            patientLL.printAll();
+            System.out.println();
+        }
 
     }
 
+    private void findPatientWait(){
+        System.out.print("Enter patient ID: ");
+        String id = sc.nextLine();
+        for (PatientLL patientLL : patientLLs){
+            Patient patient = patientLL.findPatient(id);
+            if (patient != null){
+                System.out.println(patient.getFName() + "'s wait time = " + patientLL.findPatientWait(patient) + " minutes.");
+            }
+        }
+    }
+
+    /*
     public void updateCSV(File file, PatientLL patientLL){
 
         long lastChanged = file.lastModified();
@@ -103,32 +181,7 @@ public class PatientQueue {
         }
 
 
-    }
-
-    public void showList(PatientLL patientLL){
-        int[] docETAs = patientLL.calculateTotalWait(availableDoctors);
-        //System.out.println(Arrays.toString(docETAs));
-        System.out.println("Doctor A: " + ((double)docETAs[0]/60) + " hour wait"); // problem could be that the ETA is correct for b but its supposed to be for a
-        System.out.println("Doctor B: " + ((double)docETAs[1]/60) + " hour wait");
-        System.out.println("Doctor C: " + ((double)docETAs[2]/60) + " hour wait");
-        System.out.println("Doctor D: " + ((double)docETAs[3]/60) + " hour wait");
-        System.out.println("Doctor E: " + ((double)docETAs[4]/60) + " hour wait");
-        System.out.println("Any doctor: " + ((double)docETAs[5]/60) + " hour wait");
-
-        //String id = "c1a886e8-fc48-5b10-98cf-eb21b8d20220";
-
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Input user ID: ");
-        String id = sc.nextLine();
-        Patient foundPatient = patientLL.findPatient(id);
-        double waitTime = ((double)patientLL.patientWait(foundPatient, id, availableDoctors))/60;
-        int waitHour = (int)waitTime;
-        double waitMin = (waitTime-waitHour)*60;
-
-        System.out.println("ETA for " + foundPatient.getFName() + " to see "
-                + foundPatient.getDocSpecified().getfName() + " is " + waitHour + " hours and " +
-                waitMin + " minutes.");
-    }
+    }*/
 
 
 

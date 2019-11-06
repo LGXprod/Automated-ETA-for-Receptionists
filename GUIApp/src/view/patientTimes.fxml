@@ -14,7 +14,7 @@
         <TextField/>
     </HBox>
 
-    <TableView prefHeight="-Infinity">
+    <TableView items="${controller.patientTimes.currentView}" fx:id="patientsTv" prefHeight="600">
         <placeholder>
             <Label text="No patients currently waiting."/>
         </placeholder>

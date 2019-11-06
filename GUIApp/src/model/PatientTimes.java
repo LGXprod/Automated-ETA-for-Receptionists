@@ -1,5 +1,7 @@
 package model;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 
 import java.io.File;
@@ -22,19 +24,17 @@ public class PatientTimes {
     public PatientTimes(ArrayList<Doctor> availableDoctors){
 
         this.availableDoctors = availableDoctors;
+
+        patients = FXCollections.<Patient>observableArrayList();
+        currentView = FXCollections.<Patient>observableArrayList();
+
         String fileName = "patientListMorning.csv";
         File file = new File(fileName);
-        initialCSV(file);
-        currentView.addAll(patients);
 
-    }
-
-    public void initialCSV(File file){
-
-        Doctor doctorSpecified;
 
         try {
 
+            Doctor doctorSpecified;
             Scanner inputStream = new Scanner(file);
 
             while  (inputStream.hasNextLine()){
@@ -66,7 +66,6 @@ public class PatientTimes {
 
                 Patient patient = new Patient(patientQueue[0], patientQueue[1], patientQueue[3],
                         Integer.parseInt(patientQueue[4]), Integer.parseInt(patientQueue[5]), Boolean.parseBoolean(patientQueue[6]), doctorSpecified);
-                //patientLL.insert(patient);
                 patients.add(patient);
 
             }
@@ -79,6 +78,21 @@ public class PatientTimes {
 
         }
 
+        currentView.addAll(patients);
+
+        patients.addListener(new ListChangeListener<Patient>() {
+            @Override
+            public void onChanged(javafx.collections.ListChangeListener.Change<? extends Patient> c) {
+                currentView.clear();
+                currentView.addAll(patients);
+            }
+
+        });
+
+    }
+
+    public ObservableList<Patient> getCurrentView(){
+        return currentView;
     }
 
 }

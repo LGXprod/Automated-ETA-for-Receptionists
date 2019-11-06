@@ -14,14 +14,14 @@
         <TextField/>
     </HBox>
 
-    <TableView prefHeight="-Infinity">
+    <TableView items="${controller.patientTimes.currentView}" fx:id="patientsTv" prefHeight="600">
         <placeholder>
             <Label text="No patients currently waiting."/>
         </placeholder>
         <columns>
-            <TableColumn text="Name"></TableColumn>
-            <TableColumn text="Doctor"></TableColumn>
-            <TableColumn text="ETA"></TableColumn>
+            <TableColumn text="Name" fx:id="nameClm"></TableColumn>
+            <TableColumn text="Doctor" fx:id="doctorClm"></TableColumn>
+            <TableColumn text="ETA" fx:id="etaClm"></TableColumn>
         </columns>
     </TableView>
 

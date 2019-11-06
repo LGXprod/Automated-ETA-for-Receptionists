@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" alignment="TOP_CENTER" fx:controller="controller.PatientTimesController"
+      spacing="10" prefWidth="400" prefHeight="800">
+
+    <HBox spacing="10" alignment="center">
+        <Label text="Patient Search:"/>
+        <TextField/>
+    </HBox>
+
+    <TableView prefHeight="-Infinity">
+        <placeholder>
+            <Label text="No patients currently waiting."/>
+        </placeholder>
+        <columns>
+            <TableColumn text="Name"></TableColumn>
+            <TableColumn text="Doctor"></TableColumn>
+            <TableColumn text="ETA"></TableColumn>
+        </columns>
+    </TableView>
+
+
+</VBox>

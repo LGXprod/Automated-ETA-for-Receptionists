@@ -19,8 +19,8 @@
             <Label text="No patients currently waiting."/>
         </placeholder>
         <columns>
-            <TableColumn text="Name" fx:id="nameClm"></TableColumn>
-            <TableColumn text="Doctor" fx:id="doctorClm"></TableColumn>
+            <TableColumn text="Name" fx:id="fNameClm"></TableColumn>
+            <TableColumn text="Surname" fx:id="sNameClm"></TableColumn>
             <TableColumn text="ETA" fx:id="etaClm"></TableColumn>
         </columns>
     </TableView>

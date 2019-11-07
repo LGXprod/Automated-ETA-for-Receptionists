@@ -64,7 +64,7 @@ public class PatientTimes {
                     doctorSpecified = availableDoctors.get(7);
                 }
 
-                Patient patient = new Patient(patientQueue[0], patientQueue[1], patientQueue[3],
+                Patient patient = new Patient(patientQueue[0], patientQueue[1], patientQueue[2],
                         Integer.parseInt(patientQueue[4]), Integer.parseInt(patientQueue[5]), Boolean.parseBoolean(patientQueue[6]), doctorSpecified);
                 patients.add(patient);
 

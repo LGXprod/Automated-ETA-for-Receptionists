@@ -15,8 +15,8 @@ import java.util.List;
 public class PatientTimesController {
 
     @FXML private TableView<Patient> patientsTv;
-    @FXML private TableColumn<Patient, String> nameClm;
-    @FXML private TableColumn<Patient, String> doctorClm;
+    @FXML private TableColumn<Patient, String> fNameClm;
+    @FXML private TableColumn<Patient, String> sNameClm;
     @FXML private TableColumn<Patient, String> etaClm;
     private PatientTimes patientTimes;
 
@@ -37,7 +37,8 @@ public class PatientTimesController {
         patientTimes = new PatientTimes(doctors);
 
         patientsTv.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
-        nameClm.setCellValueFactory(cellData -> cellData.getValue().fNameProperty());
+        fNameClm.setCellValueFactory(cellData -> cellData.getValue().fNameProperty());
+        sNameClm.setCellValueFactory(cellData -> cellData.getValue().sNameProperty());
         //doctorClm.setCellValueFactory(cellData -> cellData.getValue().getDocSpecified());
     }
 

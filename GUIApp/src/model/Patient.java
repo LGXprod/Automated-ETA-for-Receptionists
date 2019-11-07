@@ -7,7 +7,7 @@ public class Patient {
     Patient next;
     private String guid;
     private StringProperty fName;
-    private String sName;
+    private StringProperty sName;
     private int hourArrived;
     private int minArrived;
     private int avgTimeWDoc;
@@ -18,9 +18,13 @@ public class Patient {
 
         this.next = null;
         guid = id;
+
         this.fName = new SimpleStringProperty();
         this.fName.set(patientFName);
-        sName = patientSName;
+
+        this.sName = new SimpleStringProperty();
+        this.sName.set(patientSName);
+
         hourArrived = hour;
         minArrived = min;
         docSpecified = new SimpleObjectProperty<Doctor>();
@@ -34,6 +38,12 @@ public class Patient {
     }
 
     public ReadOnlyStringProperty fNameProperty(){ return this.fName; }
+
+    public String getSName(){
+        return sName.getValue();
+    }
+
+    public ReadOnlyStringProperty sNameProperty(){ return this.sName; }
 
     public Doctor getDocSpecified(){ return docSpecified.getValue(); }
 

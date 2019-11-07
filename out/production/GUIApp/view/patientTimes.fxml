@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" alignment="TOP_CENTER" fx:controller="controller.PatientTimesController"
+      spacing="10" prefWidth="400" prefHeight="800">
+
+    <HBox spacing="10" alignment="center">
+        <Label text="Patient Search:"/>
+        <TextField/>
+    </HBox>
+
+    <TableView items="${controller.patientTimes.currentView}" fx:id="patientsTv" prefHeight="600"
+            onMouseClicked="#handleSelectedRows">
+        <placeholder>
+            <Label text="No patients currently waiting."/>
+        </placeholder>
+        <columns>
+            <TableColumn text="Name" fx:id="fNameClm"></TableColumn>
+            <TableColumn text="Surname" fx:id="sNameClm"></TableColumn>
+            <TableColumn text="ETA" fx:id="etaClm"></TableColumn>
+        </columns>
+    </TableView>
+
+
+</VBox>

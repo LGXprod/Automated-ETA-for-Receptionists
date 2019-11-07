@@ -26,6 +26,8 @@ public class PatientTimes {
         this.availableDoctors = availableDoctors;
 
         patients = FXCollections.<Patient>observableArrayList();
+
+
         currentView = FXCollections.<Patient>observableArrayList();
 
         String fileName = "patientListMorning.csv";

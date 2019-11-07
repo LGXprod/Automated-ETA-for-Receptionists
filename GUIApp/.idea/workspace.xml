@@ -2,21 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/../.idea/libraries/lib.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Application/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Application/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Application/out/production/Application/Doctor.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Application/out/production/Application/Doctor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Application/out/production/Application/Patient.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Application/out/production/Application/Patient.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Application/out/production/Application/PatientLL.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Application/out/production/Application/PatientLL.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Application/out/production/Application/PatientQueue.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Application/out/production/Application/PatientQueue.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/GUIApp/ETAutoApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/GUIApp/controller/PatientTimesController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/GUIApp/model/Doctor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/GUIApp/model/Patient.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/GUIApp/model/PatientTimes$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/GUIApp/model/PatientTimes.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/PatientTimesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/PatientTimesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/PatientTimes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/PatientTimes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/patientTimes.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/patientTimes.fxml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -263,7 +252,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

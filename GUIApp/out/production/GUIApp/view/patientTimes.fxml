@@ -5,9 +5,14 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import java.net.URL?>
 
 <VBox xmlns:fx="http://javafx.com/fxml" alignment="TOP_CENTER" fx:controller="controller.PatientTimesController"
       spacing="10" prefWidth="400" prefHeight="800">
+
+    <stylesheets>
+        <URL value="@main.css"/>
+    </stylesheets>
 
     <HBox spacing="10" alignment="center">
         <Label text="Patient Search:"/>

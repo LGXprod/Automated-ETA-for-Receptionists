@@ -5,6 +5,8 @@ import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.input.MouseEvent;
+
+
 import model.Doctor;
 import model.Patient;
 import model.PatientTimes;

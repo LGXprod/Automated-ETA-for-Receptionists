@@ -14,7 +14,8 @@
         <TextField/>
     </HBox>
 
-    <TableView items="${controller.patientTimes.currentView}" fx:id="patientsTv" prefHeight="600">
+    <TableView items="${controller.patientTimes.currentView}" fx:id="patientsTv" prefHeight="600"
+            onMouseClicked="#handleSelectedRows">
         <placeholder>
             <Label text="No patients currently waiting."/>
         </placeholder>

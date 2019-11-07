@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.input.MouseEvent;
 import model.Doctor;
 import model.Patient;
 import model.PatientTimes;
@@ -36,14 +37,20 @@ public class PatientTimesController {
 
         patientTimes = new PatientTimes(doctors);
 
-        patientsTv.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+        patientsTv.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+        patientsTv.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+
         fNameClm.setCellValueFactory(cellData -> cellData.getValue().fNameProperty());
         sNameClm.setCellValueFactory(cellData -> cellData.getValue().sNameProperty());
-        //doctorClm.setCellValueFactory(cellData -> cellData.getValue().getDocSpecified());
+
     }
 
     public PatientTimes getPatientTimes(){
         return patientTimes;
+    }
+
+    public void handleSelectedRows(MouseEvent event){
+        System.out.println("Clicked");
     }
 
 }

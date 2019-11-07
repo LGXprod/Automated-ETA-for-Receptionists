@@ -3,17 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GUIApp/ETAutoApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GUIApp/ETAutoApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GUIApp/controller/PatientTimesController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GUIApp/controller/PatientTimesController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GUIApp/model/Patient.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GUIApp/model/Patient.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GUIApp/model/PatientLL.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GUIApp/model/PatientQueue.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GUIApp/view/patientTimes.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GUIApp/view/patientTimes.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ETAutoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ETAutoApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/PatientTimesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/PatientTimesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Patient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Patient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/PatientLL.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/PatientQueue.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/PatientTimes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/PatientTimes.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/patientTimes.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/patientTimes.fxml" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
@@ -71,14 +63,24 @@
       <content type="file-editors">
         <state>
           <leaf>
-            <file pinned="false" current-in-tab="true">
+            <file pinned="false" current-in-tab="false">
               <entry file="file://$PROJECT_DIR$/src/model/PatientTimes.java">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="737">
-                    <caret line="66" column="94" selection-start-line="66" selection-start-column="94" selection-end-line="66" selection-end-column="94" />
+                  <state relative-caret-position="345">
+                    <caret line="59" column="43" selection-start-line="59" selection-start-column="43" selection-end-line="59" selection-end-column="43" />
                     <folding>
                       <element signature="imports" expanded="true" />
                     </folding>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+            <file pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/src/view/patientTimes.fxml">
+                <provider editor-type-id="JavaFX-Scene-Builder" />
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="450">
+                    <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
                   </state>
                 </provider>
               </entry>
@@ -104,28 +106,28 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="fxml" value="582" />
-          <entry key="java" value="2128" />
+          <entry key="fxml" value="601" />
+          <entry key="java" value="2291" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="2128" />
-          <entry key="XML" value="582" />
+          <entry key="JAVA" value="2291" />
+          <entry key="XML" value="601" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="csv" value="1" />
-          <entry key="fxml" value="3" />
+          <entry key="csv" value="3" />
+          <entry key="fxml" value="4" />
           <entry key="java" value="35" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CSV" value="1" />
+          <entry key="CSV" value="3" />
           <entry key="JAVA" value="35" />
-          <entry key="XML" value="3" />
+          <entry key="XML" value="4" />
         </counts>
       </usages-collector>
     </session>
@@ -138,8 +140,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ETAutoApplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" selection-start-line="24" selection-end-line="24" />
+            <state relative-caret-position="120">
+              <caret line="8" column="52" lean-forward="true" selection-start-line="8" selection-start-column="52" selection-end-line="8" selection-end-column="52" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -150,10 +152,14 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/controller/PatientTimesController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="40" column="88" lean-forward="true" selection-start-line="39" selection-start-column="10" selection-end-line="40" selection-end-column="88" />
+            <state relative-caret-position="435">
+              <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="32" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1424#1425#0" expanded="true" />
+                <element signature="e#1459#1460#0" expanded="true" />
+                <element signature="e#1584#1585#0" expanded="true" />
+                <element signature="e#1620#1621#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -162,18 +168,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/model/Patient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="453">
-              <caret line="32" column="39" selection-start-line="32" selection-start-column="39" selection-end-line="32" selection-end-column="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/view/patientTimes.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder" />
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+            <state relative-caret-position="240">
+              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
             </state>
           </provider>
         </entry>
@@ -214,11 +210,11 @@
         <option value="$PROJECT_DIR$/src/ViewLoader.java" />
         <option value="$PROJECT_DIR$/src/Controller.java" />
         <option value="$PROJECT_DIR$/src/etAutoApplication.java" />
-        <option value="$PROJECT_DIR$/src/view/patientTimes.fxml" />
         <option value="$PROJECT_DIR$/src/model/PatientQueue.java" />
-        <option value="$PROJECT_DIR$/src/ETAutoApplication.java" />
-        <option value="$PROJECT_DIR$/src/model/PatientTimes.java" />
         <option value="$PROJECT_DIR$/src/model/Patient.java" />
+        <option value="$PROJECT_DIR$/src/model/PatientTimes.java" />
+        <option value="$PROJECT_DIR$/src/ETAutoApplication.java" />
+        <option value="$PROJECT_DIR$/src/view/patientTimes.fxml" />
         <option value="$PROJECT_DIR$/src/controller/PatientTimesController.java" />
       </list>
     </option>
@@ -291,7 +287,7 @@
     <property name="MemberChooser.sorted" value="false" />
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1573107806564" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1573110730285" />
     <property name="dynamic.classpath" value="false" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -533,28 +529,55 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/patientListMorning.csv">
+    <entry file="file://$PROJECT_DIR$/patientListArvo.csv">
       <provider editor-type-id="csv-table-editor">
         <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
       </provider>
       <provider selected="true" editor-type-id="csv-text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Patient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/model/PatientTimes.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="737">
-          <caret line="66" column="94" selection-start-line="66" selection-start-column="94" selection-end-line="66" selection-end-column="94" />
+        <state relative-caret-position="345">
+          <caret line="59" column="43" selection-start-line="59" selection-start-column="43" selection-end-line="59" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/patientListMorning.csv">
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      </provider>
+      <provider selected="true" editor-type-id="csv-text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ETAutoApplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
+        <state relative-caret-position="120">
+          <caret line="8" column="52" lean-forward="true" selection-start-line="8" selection-start-column="52" selection-end-line="8" selection-end-column="52" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/PatientTimesController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="32" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1424#1425#0" expanded="true" />
+            <element signature="e#1459#1460#0" expanded="true" />
+            <element signature="e#1584#1585#0" expanded="true" />
+            <element signature="e#1620#1621#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -562,25 +585,8 @@
     <entry file="file://$PROJECT_DIR$/src/view/patientTimes.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/Patient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="453">
-          <caret line="32" column="39" selection-start-line="32" selection-start-column="39" selection-end-line="32" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/PatientTimesController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="40" column="88" lean-forward="true" selection-start-line="39" selection-start-column="10" selection-end-line="40" selection-end-column="88" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="450">
+          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
         </state>
       </provider>
     </entry>

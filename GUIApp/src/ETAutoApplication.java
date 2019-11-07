@@ -13,9 +13,8 @@ public class ETAutoApplication extends Application {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/patientTimes.fxml"));
         Parent root = loader.load();
-        stage.setTitle("etAuto");
+        stage.setTitle("Patient ETAs");
         stage.setScene(new Scene(root));
-        //stage.setFullScreen(true);
         stage.show();
 
     }

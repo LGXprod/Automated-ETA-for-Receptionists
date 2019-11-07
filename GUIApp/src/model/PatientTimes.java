@@ -44,7 +44,9 @@ public class PatientTimes {
                 if (patientQueue[0].equals("guid")){
                     continue;
                 }
-                // Doctor doctorSpecified = new Doctor(patientQueue[7]); // This line creates a unique doctor object for every patient despite the intention being to check which docs were in
+                // Doctor doctorSpecified = new Doctor(patientQueue[7]);
+                // This line creates a unique doctor object for every patient despite the
+                // intention being to check which docs were in
 
                 if (patientQueue[7].equals("6")){
                     doctorSpecified = availableDoctors.get(5);
@@ -65,7 +67,8 @@ public class PatientTimes {
                 }
 
                 Patient patient = new Patient(patientQueue[0], patientQueue[1], patientQueue[2],
-                        Integer.parseInt(patientQueue[4]), Integer.parseInt(patientQueue[5]), Boolean.parseBoolean(patientQueue[6]), doctorSpecified);
+                        Integer.parseInt(patientQueue[4]), Integer.parseInt(patientQueue[5]),
+                        Boolean.parseBoolean(patientQueue[6]), doctorSpecified);
                 patients.add(patient);
 
             }
